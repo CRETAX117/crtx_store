@@ -35,9 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Rutas
-app.get('/', (req, res) => {
-  res.render('home', { title: 'CRTX Store' });
-});
+const productRoutes = require('./routes/products');
+app.use('/products', productRoutes);
+app.get('/', (req, res) => res.redirect('/products'));
 
 // Arrancar
 const PORT = process.env.PORT || 3000;
