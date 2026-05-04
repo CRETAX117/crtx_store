@@ -501,6 +501,60 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ── login ── */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.02em;
+}
+
+.login-header p {
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.login-errors {
+  margin-bottom: 1rem;
+}
+
+.form-errors {
+  margin-bottom: 1rem;
+}
+
+.btn-full { width: 100%; }
+
+.nav-user {
+  padding: 0.25rem 0.75rem;
+  background: var(--primary-50);
+  color: var(--primary-color);
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
 /* ── responsive ── */
 @media (max-width: 768px) {
   .navbar { padding: 0 1rem; }
@@ -510,6 +564,7 @@ body {
   .products-grid { grid-template-columns: 1fr; }
   .product-form { padding: 1.25rem; }
   .form-actions { flex-direction: column; }
+  .login-card { margin: 1rem; padding: 1.5rem; }
 }
 
 @media (max-width: 480px) {

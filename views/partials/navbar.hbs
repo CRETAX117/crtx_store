@@ -3,7 +3,11 @@
     <a href="/products" class="navbar-logo">CRTX Store</a>
   </div>
   <div class="navbar-links">
+    {{#if isAuthenticated}}
     <a href="/products" class="nav-link active">Productos</a>
     <a href="#" class="nav-link disabled">Chat</a>
+    <span class="nav-user">{{username}}</span>
+    <a href="/auth/logout" class="btn btn-sm btn-secondary">Salir</a>
+    {{/if}}
   </div>
 </nav>

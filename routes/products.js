@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Product = require('../models/Product');
 const upload = require('../middlewares/upload');
+const { productRules, validate } = require('../middlewares/validators');
 
 // Listar productos
 router.get('/', async (req, res) => {
@@ -34,8 +35,16 @@ router.get('/new', (req, res) => {
 });
 
 // Guardar producto
-router.post('/', upload.single('imagen'), async (req, res) => {
+router.post('/', upload.single('imagen'), productRules, validate, async (req, res) => {
   try {
+    if (req.validationErrors) {
+      return res.render('products/form', {
+        title: 'Nuevo Producto',
+        product: req.body,
+        isEdit: false,
+        errors: req.validationErrors
+      });
+    }
     const { nombre, precio, descripcion } = req.body;
     const product = new Product({
       nombre,
@@ -50,7 +59,7 @@ router.post('/', upload.single('imagen'), async (req, res) => {
       title: 'Nuevo Producto',
       product: req.body,
       isEdit: false,
-      error: 'Error al crear el producto: ' + err.message
+      errors: ['Error al crear el producto: ' + err.message]
     });
   }
 });

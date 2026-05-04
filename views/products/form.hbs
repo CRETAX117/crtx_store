@@ -39,8 +39,12 @@
       <small class="form-hint">JPG, PNG o WebP. Máximo 5MB.</small>
     </div>
 
-    {{#if error}}
-    <div class="form-error">{{error}}</div>
+    {{#if errors}}
+    <div class="form-errors">
+      {{#each errors}}
+      <div class="form-error">{{this}}</div>
+      {{/each}}
+    </div>
     {{/if}}
 
     <div class="form-actions">
