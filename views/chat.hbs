@@ -1,0 +1,25 @@
+<div class="chat-page">
+  <div class="chat-container">
+    <div class="chat-header">
+      <h1>Chat</h1>
+      <span class="chat-status">En línea como <strong>{{currentUser}}</strong></span>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      {{#each messages}}
+      <div class="chat-msg {{#if (eq this.user ../currentUser)}}chat-msg-own{{/if}}">
+        <span class="chat-msg-user">{{this.user}}</span>
+        <p class="chat-msg-text">{{this.message}}</p>
+      </div>
+      {{/each}}
+    </div>
+
+    <form id="chatForm" class="chat-input-area">
+      <input type="text" id="chatInput" class="input chat-input" placeholder="Escribe un mensaje..." autocomplete="off" required>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>

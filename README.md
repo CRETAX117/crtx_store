@@ -5,6 +5,7 @@
 * Nombre: Brandon Cardenas
 * Grupo: N1
 * Sede: Cuenca
+* URL: https://cretax-systems.com/web/U2/
 
 ## Qué es
 
@@ -42,7 +43,10 @@ Node.js, Express, MongoDB, Handlebars, Multer, Socket.io
 - Navbar con usuario logueado y botón de salir
 
 ### Chat en tiempo real
-- Pendiente (Socket.io)
+- Mensajes con Socket.io (se actualizan sin recargar la página)
+- Historial guardado en MongoDB (últimos 50 mensajes)
+- Burbujas estilo WhatsApp (propias a la derecha, ajenas a la izquierda)
+- Solo accesible si estás logueado
 
 ## Estructura
 
